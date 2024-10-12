@@ -1,0 +1,684 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FA63A54D-844C-46BA-8969-4AC83003ACAD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Supply.Orders.Manager</RootNamespace>
+    <AssemblyName>Supply Orders Manager</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\fastmobile-logo-3.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="DevExpress.BonusSkins.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Images.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Map.v18.2.Core, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v18.2.DataModel, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v18.2.DataModel.EF6, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v18.2.ViewModel, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v18.2.Core, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v18.2.Core, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Connected Services\MikroEService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Main\Cry.cs" />
+    <Compile Include="Entity\Main\Migrations.cs" />
+    <Compile Include="Entity\Main\ResourcesAttribute.cs" />
+    <Compile Include="Entity\Main\SOMAttribute.cs" />
+    <Compile Include="Entity\Main\SOMContext.cs" />
+    <Compile Include="Entity\Main\SOMDesc.cs" />
+    <Compile Include="Entity\Main\SOMInitializer.cs" />
+    <Compile Include="Entity\Models\mdlBase.cs" />
+    <Compile Include="Entity\Models\mdlDepartman.cs" />
+    <Compile Include="Entity\Models\mdlEFatura.cs" />
+    <Compile Include="Entity\Models\mdlEFaturaOnay.cs" />
+    <Compile Include="Entity\Models\mdlEkranTasarim.cs" />
+    <Compile Include="Entity\Models\mdlFirma.cs" />
+    <Compile Include="Entity\Models\mdlGorevGruplari.cs" />
+    <Compile Include="Entity\Models\mdlGorev.cs" />
+    <Compile Include="Entity\Models\mdlGorevHareket.cs" />
+    <Compile Include="Entity\Models\mdlKullanici.cs" />
+    <Compile Include="Entity\NotDbModels\mdlAlertMessage.cs" />
+    <Compile Include="Entity\NotDbModels\mdlEFOnayListe.cs" />
+    <Compile Include="Forms\EFatura\frmEFaturaFirmalar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EFatura\frmEFaturaFirmalar.Designer.cs">
+      <DependentUpon>frmEFaturaFirmalar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EFatura\frmEFaturaGelen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EFatura\frmEFaturaGelen.Designer.cs">
+      <DependentUpon>frmEFaturaGelen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EFatura\frmEFaturaKontrol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EFatura\frmEFaturaKontrol.Designer.cs">
+      <DependentUpon>frmEFaturaKontrol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EFatura\frmEFaturaOnay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EFatura\frmEFaturaOnay.Designer.cs">
+      <DependentUpon>frmEFaturaOnay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Genel\frmGorevAtamalarim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Genel\frmGorevAtamalarim.Designer.cs">
+      <DependentUpon>frmGorevAtamalarim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Genel\frmGorevDetaylarim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Genel\frmGorevDetaylarim.Designer.cs">
+      <DependentUpon>frmGorevDetaylarim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Genel\frmGorevAtama.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Genel\frmGorevAtama.Designer.cs">
+      <DependentUpon>frmGorevAtama.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Genel\frmGorevHavuzu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Genel\frmGorevHavuzu.Designer.cs">
+      <DependentUpon>frmGorevHavuzu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Genel\frmGorevlerim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Genel\frmGorevlerim.Designer.cs">
+      <DependentUpon>frmGorevlerim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Yonetici\frmGorevDuzenle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Yonetici\frmGorevDuzenle.Designer.cs">
+      <DependentUpon>frmGorevDuzenle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UygulamaForm\frmGirisEkrani.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UygulamaForm\frmGirisEkrani.Designer.cs">
+      <DependentUpon>frmGirisEkrani.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Yonetici\frmDepartman.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Yonetici\frmDepartman.Designer.cs">
+      <DependentUpon>frmDepartman.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Yonetici\frmGorevKopyala.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Yonetici\frmGorevKopyala.Designer.cs">
+      <DependentUpon>frmGorevKopyala.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Yonetici\frmKullanici.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Yonetici\frmKullanici.Designer.cs">
+      <DependentUpon>frmKullanici.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBase.Designer.cs">
+      <DependentUpon>frmBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ExceptionHelpers.cs" />
+    <Compile Include="Helpers\AppInstance.cs" />
+    <Compile Include="Helpers\GorevHelpers.cs" />
+    <Compile Include="Helpers\SQLHelper.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Tablo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Tablo.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\EFatura\frmEFaturaFirmalar.resx">
+      <DependentUpon>frmEFaturaFirmalar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EFatura\frmEFaturaGelen.resx">
+      <DependentUpon>frmEFaturaGelen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EFatura\frmEFaturaKontrol.resx">
+      <DependentUpon>frmEFaturaKontrol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EFatura\frmEFaturaOnay.resx">
+      <DependentUpon>frmEFaturaOnay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Genel\frmGorevAtamalarim.resx">
+      <DependentUpon>frmGorevAtamalarim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Genel\frmGorevDetaylarim.resx">
+      <DependentUpon>frmGorevDetaylarim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Genel\frmGorevAtama.resx">
+      <DependentUpon>frmGorevAtama.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Genel\frmGorevHavuzu.resx">
+      <DependentUpon>frmGorevHavuzu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Genel\frmGorevlerim.resx">
+      <DependentUpon>frmGorevlerim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Yonetici\frmGorevDuzenle.resx">
+      <DependentUpon>frmGorevDuzenle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UygulamaForm\frmGirisEkrani.resx">
+      <DependentUpon>frmGirisEkrani.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Yonetici\frmDepartman.resx">
+      <DependentUpon>frmDepartman.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Yonetici\frmGorevKopyala.resx">
+      <DependentUpon>frmGorevKopyala.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Yonetici\frmKullanici.resx">
+      <DependentUpon>frmKullanici.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBase.resx">
+      <DependentUpon>frmBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Properties\Tablo.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Tablo.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Connected Services\MikroEService\Firmbox.wsdl" />
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.acceptInvoiceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.AccountDocumentSerialDataInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.AccountSerialAliasInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.AccountUBLSerialDataInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.addAccountCustomDocumentSerialResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.applicationResponseOperationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.cancellationEArchiveResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.ConstantItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.CreditNoteDataInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.CreditNoteDataQInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.DespatchAdviceDataInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.DespatchAdviceDataQInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.despatchReceiptAdviceOperationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.DocumentCurrentStatusDataInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.DocumentPackageStatusDataInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.DocumentQueueState.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.DocumentTransactionHeaderDataInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.downloadUBLTRResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.EInvoicePacketInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.EPassengerListDataInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.ETicketDataInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getAccountDocumentSerialResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.GetAccountSerialAliasInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getAccountStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getAttachmentsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getCancelAccountRequestResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getCreditNoteFromDateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getCreditNoteFromQueryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getCurrentUBLVersionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getDespatchAdviceFromDateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getDespatchAdviceFromIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.GetDespatchAdviceFromQueryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.GetDespatchAdviceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getDespatchAdviceResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getDespatchReceiptAdviceDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getDocumentCurrentStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getDocumentDataFromReferanceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getDocumentHtmlFromHeaderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getDocumentHtmlFromIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getDocumentPackageStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getDocumentQueueStateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getDocumentValidationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getDocumentViewResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getEArchiveDailyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getEArchiveFromDateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getEInvoicePacketResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getEnvelopeDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getEPassengerListFromDateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getEPassengerListFromReferanceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getETicketFromDateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getETicketFromReferanceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getIncorrectDetailFromDateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getIncorrectDetailViewResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getInvoiceDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getInvoiceFromDateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getInvoiceFromIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getInvoiceFromQueryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getLastDocumentDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getNonTaxPayerInvoiceFromDateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getNonTaxPayerInvoiceFromIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getPackageInvalidDocumentsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.GetQrDataInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getQRResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getReceiptAdvicesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getResponseCustomDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getResponseHtmlResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getSelfEmployedReceiptFromDateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getSelfEmployedReceiptFromQueryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getTransactionHeaderFromDateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getUBLSerialsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getUBLValidationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getUBLViewResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getUserFromDateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getUserFromDatesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getUserFromTaxIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getUserPacketCountResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getUserPacketResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getUUIDFromReferenceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getXsltResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.getZReportFromDateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.healthcheckResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.IncorrectDetailInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.incorrectOperationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.InvoiceDataInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.InvoiceDataQInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.LastDocumentDataInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.loadXsltResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.loginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.logoutResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.NonTaxPayerInvoiceData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.objectionEArchiveResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.PackageDocumentsDataInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.queryInvoiceCenterStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.ReceiptAdviceDataInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.rejectInvoiceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.resendEnvelopeSystemResponseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.resendInvoiceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.ResponseCustomDataInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.RevocationOfCancellationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.SelfEmployedReceiptDataInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.SelfEmployedReciptDataQInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.sendDespatchResponseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.sendDocumentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.sendUBLResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.ServiceDocument.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.ServiceDocumentValidationData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.ServiceReturn.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.setTagsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.uploadUBLTRResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.UserDataInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.UserPacketCountInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.UserPacketInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MikroEService\Supply.Task.MikroEService.ZReportDataInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MikroEService\configuration91.svcinfo" />
+    <None Include="Connected Services\MikroEService\configuration.svcinfo" />
+    <None Include="Connected Services\MikroEService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Resources\fastmobile-logo-3.ico" />
+    <None Include="Resources\SUPPLY YENİ LOGO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Forms\Ayarlar\" />
+    <Folder Include="Properties\DataSources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\MikroEService\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>
