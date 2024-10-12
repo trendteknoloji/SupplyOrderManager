@@ -51,6 +51,7 @@ namespace Supply.Orders.Manager
         private void btnKullaniciYonetim_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmKullanici form = new frmKullanici();
+            form.MdiParent = this;
             form.Show();
         }
 
@@ -110,42 +111,49 @@ namespace Supply.Orders.Manager
         private void btnCariYonetim_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmCariYonetim form = new frmCariYonetim();
+            form.MdiParent = this;
             form.Show();
         }
 
         private void btnCinsYonetim_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmCinsYonetim form = new frmCinsYonetim();
+            form.MdiParent = this;
             form.Show();
         }
 
         private void btnKaliteYonetim_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmKaliteYonetim form = new frmKaliteYonetim();
+            form.MdiParent = this;
             form.Show();
         }
 
         private void btnStokYonetim_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmStokYonetim form = new frmStokYonetim();
+            form.MdiParent = this;
             form.Show();
         }
 
         private void btnSiparisGiris_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmSiparisGiris form = new frmSiparisGiris();
+            form.MdiParent = this;
             form.Show();
         }
 
         private void btnDashboardHazirlama_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmDashboardHazirlama form = new frmDashboardHazirlama();
+            form.MdiParent = this;
             form.Show();
         }
 
         private void btnRaporHazirlama_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmRaporHazirlama form = new frmRaporHazirlama();
+            form.MdiParent = this;
             form.Show();
         }
 
@@ -159,6 +167,7 @@ namespace Supply.Orders.Manager
                 if (ofd.FileName != "")
                 {
                     frmDashboardGoster frm = new frmDashboardGoster(ofd.FileName);
+                    frm.MdiParent = this;
                     frm.Show();
                 }
             }
@@ -174,6 +183,7 @@ namespace Supply.Orders.Manager
                 if (ofd.FileName != "")
                 {
                     XtraReport report = XtraReport.FromFile(ofd.FileName);
+                    
                     report.ShowRibbonPreview();
                 }
             }
@@ -182,18 +192,21 @@ namespace Supply.Orders.Manager
         private void btnSiparisOdeme_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmOdeme form = new frmOdeme();
+            form.MdiParent = this;
             form.Show();
         }
 
         private void btnCariSiparis_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmCariSiparisListesi form = new frmCariSiparisListesi();
+            form.MdiParent = this;
             form.Show();
         }
 
         private void btnStokSiparis_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmStokSiparisListesi form = new frmStokSiparisListesi();
+            form.MdiParent = this;
             form.Show();
 
         }
@@ -201,12 +214,14 @@ namespace Supply.Orders.Manager
         private void btnEnvanterGiris_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmEnvanterGiris form = new frmEnvanterGiris();
+            form.MdiParent = this;
             form.Show();
         }
 
         private void btnEnvanterDurum_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmEnvanterDurum form = new frmEnvanterDurum();
+            form.MdiParent = this;
             form.Show();
         }
     }
